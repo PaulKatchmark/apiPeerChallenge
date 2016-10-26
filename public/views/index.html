@@ -17,8 +17,9 @@
     <main ng-class="main.class">
         <button ng-click="main.getRandomGifs()">Random Giphy gif</button>
         <div class="classyDiv"><img ng-src="{{main.randomGifs}}" /></div>
+
         <input type ="text" ng-model="main.search" />
-        <button ng-click ="main.searchGifData()" class="searchBtn">Find Gif</button>
+        <button ng-click ="main.searchGifData(main.search)" class="searchBtn">Find Gif</button>
         <ul ng-repeat="gif in main.searchGifs">
           <li>
             <img ng-src="{{gif.images.downsized.url}}"/>

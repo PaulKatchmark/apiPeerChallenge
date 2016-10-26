@@ -11,7 +11,6 @@ angular.module('giphyApp')
     console.log('about to call giphy.getRandomGifs');
     main.getRandomGifs = function(){
       main.randomGifs = [];
-
       var promise = giphy.getRandomGifs(main.selected);
       console.log('promise ', promise);
         promise.then(function(gifs) {
@@ -21,13 +20,13 @@ angular.module('giphyApp')
       };
 
     main.searchGifData = function(){
-      main.searchGifs = [];
 
-      var promise = giphy.searchGifData(main.selected);
-      console.log('promise', promise);
-        promise.then(function(gif) {
-          main.searchGifs = gif;
-          console.log('searchGifData', gif);
-        });
+
+        giphy.search(main.search)
+          .then(function(gifs) {
+            console.log('Got some gifs from the service!');
+            main.searchGifs = gifs
+          });
+
       };
   };
